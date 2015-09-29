@@ -4,23 +4,23 @@
 import sys
 
 class Calculadora():
-	def __init__(self,numero1,numero2):
-		self.numero1 = numero1
-		self.numero2 = numero2
+	def __init__(self,num1,num2):
+		self.num1 = num1
+		self.num2 = num2
 
-	def suma(self,sumando1, sumando2):
-		return sumando1 + sumando2 
+	def suma(self,num1, num2):
+		return num1 + num2 
 		
-	def resta(self,numero1, numero2):
-		return numero1 - numero2
+	def resta(self,num1, num2):
+		return num1 - num2
 
 class CalculadoraHija(Calculadora):
 
-	def multiplica(self,numero1, numero2):
-		return numero1*numero2	
+	def multiplica(self,num1, num2):
+		return num1*num2	
 
-	def divide(self,numero1, numero2):
-		return numero1 / numero2
+	def divide(self,num1, num2):
+		return num1 / num2
 
 if __name__ == "__main__":
 	
