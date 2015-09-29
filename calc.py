@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Vamos a programar una calculadora
-#git commit -m "..." calc.py
-
 import sys
 
 def main():
