@@ -4,27 +4,27 @@
 import sys
 
 
+def crealist(numeros):
+    a = []
+    for i in numeros:
+        if i != numeros[0]:
+            a.append(int(i))
+    numeros = a
+    return numeros
+ 
 class Calculadora():
     def __init__(self, numeros):
         self.numeros = numeros
 
     def suma(self, sumandos):
-        a = []
-        for i in sumandos:
-            if i != sumandos[0]:
-                a.append(int(i))
-        print(a)
+        a = crealist(sumandos)
         sumas = 0
         for j in a:
             sumas += j
         print(sumas)
 
     def resta(self, numeros):
-        a = []
-        for i in numeros:
-            if i != numeros[0]:
-                a.append(int(i))
-        print(a)
+        a = crealist(numeros)           
         restas = 0
         for j in a:
             if j == a[0]:
@@ -35,22 +35,14 @@ class Calculadora():
 
 class CalculadoraHija(Calculadora):
     def multiplica(self, numeros):
-        a = []
-        for i in numeros:
-            if i != numeros[0]:
-                a.append(int(i))
-        print(a)
+        a = crealist(numeros) 
         multiplicar = 1
         for j in a:
             multiplicar *= j
         print(multiplicar)
 
     def divide(self, numeros):
-        a = []
-        for i in numeros:
-            if i != numeros[0]:
-                a.append(int(i))
-        print(a)
+        a = crealist(numeros) 
         divides = a[0]
         for j in a[1:]:
             if j != 0:
