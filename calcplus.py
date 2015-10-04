@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import csv
 
 
 def crealist(numeros):
@@ -54,21 +55,20 @@ class CalculadoraHija(Calculadora):
 if __name__ == "__main__":
     try:
         fichero = sys.argv[1]
-        fich = open(fichero, 'r')
-        fich.close
-        lines = fich.readlines()
+        with open(fichero, newline='') as fich:
+            lines = fich.readlines()
+            for line in lines:
+                palabras = line.split(',')
+                x = CalculadoraHija(palabras)
+                operacion = palabras[0]
+                if operacion == 'suma':
+                    x.suma(palabras)
+                elif operacion == 'resta':
+                    x.resta(palabras)
+                elif operacion == 'multiplica':
+                    x.multiplica(palabras)
+                elif operacion == 'divide':
+                    x.divide(palabras)
 
-        for line in lines:
-            palabras = line.split(',')
-            x = CalculadoraHija(palabras)
-            operacion = palabras[0]
-            if operacion == 'suma':
-                x.suma(palabras)
-            elif operacion == 'resta':
-                x.resta(palabras)
-            elif operacion == 'multiplica':
-                x.multiplica(palabras)
-            elif operacion == 'divide':
-                x.divide(palabras)
     except:
         sys.exit("Error")
