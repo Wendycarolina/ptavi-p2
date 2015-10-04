@@ -12,7 +12,8 @@ def crealist(numeros):
             a.append(int(i))
     numeros = a
     return numeros
- 
+
+
 class Calculadora():
     def __init__(self, numeros):
         self.numeros = numeros
@@ -25,7 +26,7 @@ class Calculadora():
         print(sumas)
 
     def resta(self, numeros):
-        a = crealist(numeros)           
+        a = crealist(numeros)
         restas = 0
         for j in a:
             if j == a[0]:
@@ -36,14 +37,14 @@ class Calculadora():
 
 class CalculadoraHija(Calculadora):
     def multiplica(self, numeros):
-        a = crealist(numeros) 
+        a = crealist(numeros)
         multiplicar = 1
         for j in a:
             multiplicar *= j
         print(multiplicar)
 
     def divide(self, numeros):
-        a = crealist(numeros) 
+        a = crealist(numeros)
         divides = a[0]
         for j in a[1:]:
             if j != 0:
