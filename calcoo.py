@@ -22,7 +22,7 @@ if __name__ == "__main__":
         x = Calculadora(numero1, numero2)
         dicc = {"sumar": x.suma, "restar": x.resta}
         operacion = dicc[sys.argv[2]]
-        print(operacion(numero1,numero2))
+        print(operacion(numero1, numero2))
     except ValueError:
         sys.exit("Error: Non numerical parameters")
     except KeyError:
