@@ -25,8 +25,8 @@ class Calculadora():
         print(sumas)
 
     def resta(self, numeros):
-		a = crealist(numeros)
-		restas = 0
+        a = crealist(numeros)
+        restas = 0
         for j in a:
             if j == a[0]:
                 j = j*-1
@@ -43,8 +43,8 @@ class CalculadoraHija(Calculadora):
         print(multiplicar)
 
     def divide(self, numeros):
-		a = crealist(numeros)
-		divides = a[0]
+        a = crealist(numeros)
+        divides = a[0]
         for j in a[1:]:
             if j != 0:
                 divides /= j
