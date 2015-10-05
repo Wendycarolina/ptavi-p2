@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import csv
 
 
 def crealist(numeros):
@@ -25,7 +26,7 @@ class Calculadora():
         print(sumas)
 
     def resta(self, numeros):
-        a = crealist(numeros)
+        a = crealist(numeros)           
         restas = 0
         for j in a:
             if j == a[0]:
@@ -36,14 +37,14 @@ class Calculadora():
 
 class CalculadoraHija(Calculadora):
     def multiplica(self, numeros):
-        a = crealist(numeros)
+        a = crealist(numeros) 
         multiplicar = 1
         for j in a:
             multiplicar *= j
         print(multiplicar)
 
     def divide(self, numeros):
-        a = crealist(numeros)
+        a = crealist(numeros) 
         divides = a[0]
         for j in a[1:]:
             if j != 0:
@@ -56,21 +57,19 @@ class CalculadoraHija(Calculadora):
 if __name__ == "__main__":
     try:
         fichero = sys.argv[1]
-        fich = open(fichero, 'r')
-        fich.close
-        lines = fich.readlines()
-
-        for line in lines:
-            palabras = line.split(',')
-            x = CalculadoraHija(palabras)
-            operacion = palabras[0]
-            if operacion == 'suma':
-                x.suma(palabras)
-            elif operacion == 'resta':
-                x.resta(palabras)
-            elif operacion == 'multiplica':
-                x.multiplica(palabras)
-            elif operacion == 'divide':
-                x.divide(palabras)
+        with open(fichero, newline='') as fich:
+            lines = fich.readlines()
+            for line in lines:
+                palabras = line.split(',')
+                x = CalculadoraHija(palabras)
+                operacion = palabras[0]
+                if operacion == 'suma':
+                    x.suma(palabras)
+                elif operacion == 'resta':
+                    x.resta(palabras)
+                elif operacion == 'multiplica':
+                    x.multiplica(palabras)
+                elif operacion == 'divide':
+                    x.divide(palabras)
     except:
         sys.exit("Error")
