@@ -4,60 +4,72 @@
 import sys
 
 
-class Calculadora():
-	def __init__(self,numeros):
-		self.numeros = numeros
+def crealist(numeros):
+    a = []
+    for i in numeros:
+        if i != numeros[0]:
+            a.append(int(i))
+    numeros = a
+    return numeros
 
-	def suma(self,sumandos):
-		for i in sumandos:
-			sumas += int(sumando[i+1]) 
-		print(sumas) 
-		
-	def resta(self,numeros):
-		for i in numeros:
-			resta -= int(numeros[i+1])
-		print(resta)
+
+class Calculadora():
+    def __init__(self, numeros):
+        self.numeros = numeros
+
+    def suma(self, sumandos):
+        a = crealist(sumandos)
+        sumas = 0
+        for j in a:
+            sumas += j
+        print(sumas)
+
+    def resta(self, numeros):
+		a = crealist(numeros)
+		restas = 0
+        for j in a:
+            if j == a[0]:
+                j = j*-1
+            restas -= j
+        print(restas)
+
 
 class CalculadoraHija(Calculadora):
+    def multiplica(self, numeros):
+        a = crealist(numeros)
+        multiplicar = 1
+        for j in a:
+            multiplicar *= j
+        print(multiplicar)
 
-	def multiplica(self,numeros):
-		for i in numeros:
-			multiplica *= int(palabras[i+1])
-		print(multiplica)
-
-	def divide(self,numeros):
-		for i in numeros:
-			if numeros != 0:
-				divide /= int(numeros[i+1])
-			else:
-				print('Division by zero is not allowed')
-		print(divide)
-
+    def divide(self, numeros):
+		a = crealist(numeros)
+		divides = a[0]
+        for j in a[1:]:
+            if j != 0:
+                divides /= j
+            else:
+                print('Division by zero is not allowed')
+        print(divides)
 
 if __name__ == "__main__":
-	try:	
-		fichero = sys.argv[1] 
-		fich = open(fichero,'r')
-			
-		fich.close
-		lines = fich.readlines()
+    try:
+        fichero = sys.argv[1]
+        fich = open(fichero, 'r')
+        fich.close
+        lines = fich.readlines()
 
-		for line in lines:
-		
-			palabras = line.split(',')
-			x = CalculadoraHija(palabras)
-			
-			for palabra in palabras:
-				if palabras == 'suma':
-					x.suma(palabras)
-				elif palabras == 'resta':
-					x.resta(palabras)
-				elif palabras == 'multiplica':	
-					x.multiplica(palabras)
-				elif palabras == 'divide':
-					x.divide(palabras)
-				else:
-					print("--")
-		
-	except:
-		sys.exit("Error")
+        for line in lines:
+            palabras = line.split(',')
+            x = CalculadoraHija(palabras)
+            operacion = palabras[0]
+            if operacion == 'suma':
+                x.suma(palabras)
+            elif operacion == 'resta':
+                x.resta(palabras)
+            elif operacion == 'multiplica':
+                x.multiplica(palabras)
+            elif operacion == 'divide':
+                x.divide(palabras)
+    except:
+        sys.exit("Error")
