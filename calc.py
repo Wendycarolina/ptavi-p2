@@ -20,16 +20,13 @@ def resta(numero1, numero2):
 
 
 if __name__ == "__main__":
-    try:
+     try:
+        dicc = {"sumar": suma, "restar": resta}
         operando1 = sys.argv[1]
-        operacion = str(sys.argv[2])
+        operacion = dicc[sys.argv[2]]
         operando2 = sys.argv[3]
-
+        print(operacion(operando1,operando2))
     except ValueError:
         sys.exit("Error: Non numerical parameters")
-    if operacion == "suma":
-        print(suma(operando1, operando2))
-    elif operacion == "resta":
-        print(resta(operando1, operando2))
-    else:
-        print("Operación incorrecta")
+    except KeyError:
+        sys.exit("Operación incorrecta")
